@@ -37,7 +37,7 @@ void disemvowel(FILE* inputFile, FILE* outputFile){
 	char* inBuffer = (char*) calloc(BUF_SIZE, sizeof(char));
 	char* outBuffer = (char*) calloc(BUF_SIZE, sizeof(char));
 	while(chunk!=0){
-		chunk == fread(inBuffer,sizeof(char),BUF_SIZE,inputFile);
+		chunk = fread(inBuffer,sizeof(char),BUF_SIZE,inputFile);
 		int nonVowels = copy_non_vowels(chunk, inBuffer, outBuffer);
 		fwrite(outBuffer, sizeof(char), nonVowels, outputFile);
 	}
