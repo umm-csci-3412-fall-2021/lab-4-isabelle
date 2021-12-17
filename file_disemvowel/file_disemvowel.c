@@ -10,7 +10,7 @@
  */
 bool is_vowel(char c){
 	if(c=='a' || c=='e' || c=='i' || c=='o' || c=='u' ||
-	c='A' || c=='E' || c=='I' ||=='O' || c=='U') {return true;}
+	c=='A' || c=='E' || c=='I' || c =='O' || c=='U') {return true;}
 	return false;
 }
 
@@ -21,7 +21,7 @@ bool is_vowel(char c){
 int copy_non_vowels(int num_chars, char* in_buf, char* out_buf){
 	int nonVowel = 0;
 	for(int i=0; i < num_chars; i++){
-		if(!is_vowel(in_buf[i]){
+		if(!is_vowel(in_buf[i])){
 			out_buf[nonVowel] = in_buf[i];
 			nonVowel++;
 		}
@@ -37,7 +37,7 @@ void disemvowel(FILE* inputFile, FILE* outputFile){
 	char* inBuffer = (char*) calloc(BUF_SIZE, sizeof(char));
 	char* outBuffer = (char*) calloc(BUF_SIZE, sizeof(char));
 	while(chunk!=0){
-		chunk = fread(inBuffer,sizeof(char),BUF_SIZE,inputFile);
+		chunk == fread(inBuffer,sizeof(char),BUF_SIZE,inputFile);
 		int nonVowels = copy_non_vowels(chunk, inBuffer, outBuffer);
 		fwrite(outBuffer, sizeof(char), nonVowels, outputFile);
 	}
