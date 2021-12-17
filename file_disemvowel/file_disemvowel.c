@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdbool.h>
-
+#include <stdlib.h>
 #define BUF_SIZE 1024
+#define chunk 1
 
 /*
  * Checks is a character is a vowel, returns true
@@ -35,10 +36,9 @@ int copy_non_vowels(int num_chars, char* in_buf, char* out_buf){
 void disemvowel(FILE* inputFile, FILE* outputFile){
 	char* inBuffer = (char*) calloc(BUF_SIZE, sizeof(char));
 	char* outBuffer = (char*) calloc(BUF_SIZE, sizeof(char));
-	chunk = 1;
 	while(chunk!=0){
 		chunk = fread(inBuffer,sizeof(char),BUF_SIZE,inputFile);
-		nonVowels = copy_non_vowels(chunk, inBuffer, outBuffer);
+		int nonVowels = copy_non_vowels(chunk, inBuffer, outBuffer);
 		fwrite(outBuffer, sizeof(char), nonVowels, outputFile);
 	}
 	free(inBuffer);
